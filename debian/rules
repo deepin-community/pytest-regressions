@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+#export DEB_BUILD_OPTIONS=nocheck
+export PYBUILD_NAME=pytest-regressions
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+
+override_dh_auto_clean:
+
+override_dh_auto_test:
+
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))<F12>
+	PYTHONPATH=. python3 -m sphinx -b html -d doc/.build/.doctrees -N doc debian/python3-pytest-regressions/usr/share/doc/python3-pytest-regressions/html/
+endif
+	find debian/python3-pytest-regressions -name 'html5shiv.min.js' -type f -exec \
+		ln -sf /usr/share/nodejs/html5shiv/dist/html5shiv.min.js {} \;
+	find debian/python3-pytest-regressions -name 'html5shiv-printshiv.min.js' -type f -exec \
+		ln -sf /usr/share/nodejs/html5shiv/dist/html5shiv-printshiv.min.js {} \;
+	# Sphinx-provided
+	find debian/python3-pytest-regressions -name 'jquery.js' -type f -exec \
+		ln -sf /usr/share/javascript/sphinxdoc/1.0/jquery.js {} \;
+	find debian/python3-pytest-regressions -name 'underscore.js' -type f -exec \
+		ln -sf /usr/share/javascript/sphinxdoc/1.0/underscore.js {} \;
+	find debian/python3-pytest-regressions -name 'doctools.js' -type f -exec \
+		ln -sf /usr/share/javascript/sphinxdoc/1.0/doctools.js {} \;
+	find debian/python3-pytest-regressions -name 'searchtools.js' -type f -exec \
+		ln -sf /usr/share/javascript/sphinxdoc/1.0/searchtools.js {} \;
+	find debian/python3-pytest-regressions -name 'language_data.js' -type f -exec \
+		ln -sf /usr/share/javascript/sphinxdoc/1.0/language_data.js {} \;

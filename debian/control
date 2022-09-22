@@ -1,0 +1,36 @@
+Source: pytest-regressions
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Pierre-Elliott Bécue <peb@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-pytest,
+               python3-pytest-datadir,
+               python3-setuptools,
+               python3-setuptools-scm,
+               python3-sphinx,
+               python3-sphinx-rtd-theme,
+               python3-yaml,
+               tox
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://github.com/ESSS/pytest-regressions
+Vcs-Git: https://salsa.debian.org/python-team/packages/pytest-regressions.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/pytest-regressions
+
+Package: python3-pytest-regressions
+Architecture: all
+Depends: libjs-sphinxdoc,
+         node-html5shiv,
+         python3-pytest,
+         ${misc:Depends},
+         ${python3:Depends},
+         ${sphinxdoc:Depends}
+Description: py.test fixtures to write regression tests
+ This plugin makes it simple to test general data, images, files, and numeric
+ tables by saving expected data in a data directory (using pytest-datadir) that
+ can be used to verify that future runs produce the same data.
+ .
+ This package provides the py.test plugin for Python 3 code.

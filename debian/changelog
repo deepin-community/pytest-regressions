@@ -1,0 +1,12 @@
+pytest-regressions (2.2.0+ds-1) unstable; urgency=medium
+
+  * New upstream release 2.2.0+ds
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Tue, 02 Feb 2021 22:32:43 +0100
+
+pytest-regressions (2.1.1+ds-1) unstable; urgency=medium
+
+  * Initial release (Closes: #977768).
+  * ds repack to remove .gitignore and .github
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Sat, 19 Dec 2020 16:46:17 +0100
